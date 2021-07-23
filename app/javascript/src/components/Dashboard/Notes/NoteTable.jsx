@@ -6,9 +6,12 @@ export default function NoteTable({
   setSelectedNoteIds,
   notes = [],
 }) {
+  const editPopup = <span>Edit</span>;
+  const deletePopup = <span>Delete</span>;
+
   return (
     <div className="w-full px-24">
-      <table className="nui-table nui-table--checkbox">
+      <table className="nui-table nui-table--checkbox nui-table--hover">
         <thead>
           <tr>
             <th>
@@ -82,15 +85,19 @@ export default function NoteTable({
               </td>
               <td>
                 <div className="flex justify-center">
-                  <Avatar size={36} contact={{ name: note.contact }} />
+                  <Avatar
+                    size={36}
+                    bgClassName="bg-indigo-300"
+                    contact={{ name: note.contact }}
+                  />
                 </div>
               </td>
               <td>
                 <div className="flex flex-row items-center space-x-4 opacity-0 hover:opacity-100">
-                  <Tooltip content={<span>Edit</span>} position="bottom">
+                  <Tooltip content={editPopup} position="bottom">
                     <Button style="icon" icon="ri-pencil-line" />
                   </Tooltip>
-                  <Tooltip content={<span>Delete</span>} position="bottom">
+                  <Tooltip content={deletePopup} position="bottom">
                     <Button style="icon" icon="ri-delete-bin-line" />
                   </Tooltip>
                 </div>

@@ -9,7 +9,7 @@ import NoteTable from "./NoteTable";
 import NewNotePane from "./NewNotePane";
 import DeleteAlert from "./DeleteAlert";
 
-import NOTES from "constants/noteDummyValues";
+import NOTES from "constants/noteConstants";
 
 const SORT_BY_OPTIONS = [
   { label: "Name", value: "name" },
