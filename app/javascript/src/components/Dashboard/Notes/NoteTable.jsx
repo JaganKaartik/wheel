@@ -1,14 +1,17 @@
 import React from "react";
-import { Checkbox } from "neetoui";
+import { Checkbox, Badge, Avatar, Button, Tooltip } from "neetoui";
 
 export default function NoteTable({
   selectedNoteIds,
   setSelectedNoteIds,
   notes = [],
 }) {
+  const editPopup = <span>Edit</span>;
+  const deletePopup = <span>Delete</span>;
+
   return (
-    <div className="w-full px-4">
-      <table className="nui-table nui-table--checkbox">
+    <div className="w-full px-24">
+      <table className="nui-table nui-table--checkbox nui-table--hover">
         <thead>
           <tr>
             <th>
@@ -28,6 +31,11 @@ export default function NoteTable({
             </th>
             <th className="text-left">Title</th>
             <th className="text-left">Description</th>
+            <th className="text-center">Tags</th>
+            <th className="text-center">Created Date</th>
+            <th className="text-center">Due Date</th>
+            <th className="text-center">Contact</th>
+            <th className="text-left"></th>
           </tr>
         </thead>
         <tbody>
@@ -55,11 +63,45 @@ export default function NoteTable({
                 />
               </td>
               <td>
-                <div className="flex flex-row items-center justify-start text-gray-900">
+                <div className="flex flex-row items-center justify-start text-purple-700">
                   {note.title}
                 </div>
               </td>
-              <td>{note.description}</td>
+              <td>
+                <p className="w-32 truncate">{note.description}</p>
+              </td>
+              <td>
+                <div className="text-center">
+                  <Badge color={note.tag.color}>{note.tag.message}</Badge>
+                </div>
+              </td>
+              <td>
+                <div className="text-center">{note.createdDate}</div>
+              </td>
+              <td>
+                <div className="text-center">
+                  {note.dueDate !== "" ? note.dueDate : "--"}
+                </div>
+              </td>
+              <td>
+                <div className="flex justify-center">
+                  <Avatar
+                    size={36}
+                    bgClassName="bg-indigo-300"
+                    contact={{ name: note.contact }}
+                  />
+                </div>
+              </td>
+              <td>
+                <div className="flex flex-row items-center space-x-4 opacity-0 hover:opacity-100">
+                  <Tooltip content={editPopup} position="bottom">
+                    <Button style="icon" icon="ri-pencil-line" />
+                  </Tooltip>
+                  <Tooltip content={deletePopup} position="bottom">
+                    <Button style="icon" icon="ri-delete-bin-line" />
+                  </Tooltip>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
