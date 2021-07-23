@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import notesApi from "apis/notes";
+// import notesApi from "apis/notes";
 import { Button, PageLoader } from "neetoui";
 import EmptyState from "components/Common/EmptyState";
 import EmptyNotesListImage from "images/EmptyNotesList";
@@ -9,13 +9,20 @@ import NoteTable from "./NoteTable";
 import NewNotePane from "./NewNotePane";
 import DeleteAlert from "./DeleteAlert";
 
+import NOTES from "constants/noteDummyValues";
+
+const SORT_BY_OPTIONS = [
+  { label: "Name", value: "name" },
+  { label: "Age", value: "age" },
+];
+
 const Notes = () => {
   const [loading, setLoading] = useState(true);
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedNoteIds, setSelectedNoteIds] = useState([]);
-  const [notes, setNotes] = useState([]);
+  const [notes] = useState(NOTES);
 
   useEffect(() => {
     fetchNotes();
@@ -24,8 +31,8 @@ const Notes = () => {
   const fetchNotes = async () => {
     try {
       setLoading(true);
-      const response = await notesApi.fetch();
-      setNotes(response.data);
+      // const response = await notesApi.fetch();
+      // setNotes(response.data);
     } catch (error) {
       logger.error(error);
     } finally {
@@ -60,6 +67,20 @@ const Notes = () => {
               onClick: () => setShowDeleteAlert(true),
               disabled: !selectedNoteIds.length,
             }}
+            sortProps={{
+              options: SORT_BY_OPTIONS,
+              onClick: () => {},
+              sortBy: {
+                column: SORT_BY_OPTIONS[0].value,
+                direction: "desc",
+              },
+            }}
+            paginationProps={{
+              count: 241,
+              pageNo: 1,
+              pageSize: 50,
+            }}
+            toggleFilter={() => {}}
           />
           <NoteTable
             selectedNoteIds={selectedNoteIds}
