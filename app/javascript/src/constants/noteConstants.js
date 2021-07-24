@@ -1,4 +1,4 @@
-const NOTES = [
+export const NOTES = [
   {
     title: "Change support email",
     description: "forward all internal mails test mails test mails",
@@ -25,4 +25,10 @@ const NOTES = [
   },
 ];
 
-export default NOTES;
+export const SORT_BY_OPTIONS = [
+  { label: "Name", value: "name" },
+  { label: "Age", value: "age" },
+];
+
+
+
