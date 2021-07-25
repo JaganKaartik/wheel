@@ -5,6 +5,7 @@ export default function NoteTable({
   selectedNoteIds,
   setSelectedNoteIds,
   notes = [],
+  handleNoteDeletion,
 }) {
   return (
     <div className="w-full px-24">
@@ -61,7 +62,7 @@ export default function NoteTable({
               </td>
               <td>
                 <div className="flex flex-row items-center justify-start">
-                  <Button style="link" label={`${note.title}`} /> 
+                  <Button style="link" label={`${note.title}`} />
                 </div>
               </td>
               <td>
@@ -95,7 +96,11 @@ export default function NoteTable({
                     <Button style="icon" icon="ri-pencil-line" />
                   </Tooltip>
                   <Tooltip content="Delete" position="bottom">
-                    <Button style="icon" icon="ri-delete-bin-line" />
+                    <Button
+                      onClick={() => handleNoteDeletion(note)}
+                      style="icon"
+                      icon="ri-delete-bin-line"
+                    />
                   </Tooltip>
                 </div>
               </td>

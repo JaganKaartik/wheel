@@ -34,6 +34,11 @@ const Notes = () => {
     }
   };
 
+  const handleNoteDeletion = note => {
+    setSelectedNoteIds([...selectedNoteIds, note.id]);
+    setShowDeleteAlert(true);
+  };
+
   if (loading) {
     return <PageLoader />;
   }
@@ -80,6 +85,7 @@ const Notes = () => {
             selectedNoteIds={selectedNoteIds}
             setSelectedNoteIds={setSelectedNoteIds}
             notes={notes}
+            handleNoteDeletion={handleNoteDeletion}
           />
         </>
       ) : (
@@ -100,7 +106,6 @@ const Notes = () => {
         <DeleteAlert
           selectedNoteIds={selectedNoteIds}
           onClose={() => setShowDeleteAlert(false)}
-          refetch={fetchNotes}
         />
       )}
     </>
