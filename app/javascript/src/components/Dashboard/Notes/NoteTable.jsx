@@ -5,13 +5,11 @@ export default function NoteTable({
   selectedNoteIds,
   setSelectedNoteIds,
   notes = [],
+  handleNoteDeletion,
 }) {
-  const editPopup = <span>Edit</span>;
-  const deletePopup = <span>Delete</span>;
-
   return (
     <div className="w-full px-24">
-      <table className="nui-table nui-table--checkbox nui-table--hover">
+      <table className="nui-table nui-table--checkbox nui-table-actions">
         <thead>
           <tr>
             <th>
@@ -63,8 +61,8 @@ export default function NoteTable({
                 />
               </td>
               <td>
-                <div className="flex flex-row items-center justify-start text-purple-700">
-                  {note.title}
+                <div className="flex flex-row items-center justify-start">
+                  <Button style="link" label={`${note.title}`} />
                 </div>
               </td>
               <td>
@@ -93,12 +91,16 @@ export default function NoteTable({
                 </div>
               </td>
               <td>
-                <div className="flex flex-row items-center space-x-4 opacity-0 hover:opacity-100">
-                  <Tooltip content={editPopup} position="bottom">
+                <div className="flex flex-row items-center space-x-4">
+                  <Tooltip content="Edit" position="bottom">
                     <Button style="icon" icon="ri-pencil-line" />
                   </Tooltip>
-                  <Tooltip content={deletePopup} position="bottom">
-                    <Button style="icon" icon="ri-delete-bin-line" />
+                  <Tooltip content="Delete" position="bottom">
+                    <Button
+                      onClick={() => handleNoteDeletion(note)}
+                      style="icon"
+                      icon="ri-delete-bin-line"
+                    />
                   </Tooltip>
                 </div>
               </td>

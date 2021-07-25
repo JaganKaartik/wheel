@@ -1,5 +1,6 @@
-const NOTES = [
+export const NOTES = [
   {
+    id: 1,
     title: "Change support email",
     description: "forward all internal mails test mails test mails",
     tag: { message: "Internal", color: "blue" },
@@ -8,6 +9,7 @@ const NOTES = [
     contact: "Neeraj Singh",
   },
   {
+    id: 2,
     title: "Feedback",
     description: "Feedback v1.0",
     tag: { message: "Agile Workflow", color: "green" },
@@ -16,6 +18,7 @@ const NOTES = [
     contact: "Vinay C",
   },
   {
+    id: 3,
     title: "Feedback Hover",
     description: "Feedback v2.0 feedback test",
     tag: { message: "Bug", color: "red" },
@@ -25,4 +28,7 @@ const NOTES = [
   },
 ];
 
-export default NOTES;
+export const SORT_BY_OPTIONS = [
+  { label: "Name", value: "name" },
+  { label: "Age", value: "age" },
+];
