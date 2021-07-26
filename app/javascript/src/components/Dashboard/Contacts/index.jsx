@@ -7,16 +7,16 @@ import { Header, SubHeader } from "neetoui/layouts";
 import { CONTACTS, SORT_BY_OPTIONS } from "constants/contact";
 import ContactTable from "./ContactTable";
 import DeleteAlert from "./DeleteAlert";
+import NewContactPane from "./NewContactPane";
 
 const Contacts = () => {
-  /* eslint-disable */
   const [loading, setLoading] = useState(true);
   const [showNewContactPane, setShowNewContactPane] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [selectedContactIds, setSelectedContactIds] = useState([]);
   const [contacts] = useState(CONTACTS);
-  /* eslint-enable */
+
   useEffect(() => {
     setLoading(false);
   }, []);
@@ -33,7 +33,13 @@ const Contacts = () => {
     <>
       <Header
         title="Contacts"
-        actionBlock={<Button label="New Contact" icon="ri-add-line" />}
+        actionBlock={
+          <Button
+            onClick={() => setShowNewContactPane(true)}
+            label="New Contact"
+            icon="ri-add-line"
+          />
+        }
       />
       {contacts.length ? (
         <>
@@ -78,6 +84,10 @@ const Contacts = () => {
           primaryActionLabel="Add New Contact"
         />
       )}
+      <NewContactPane
+        showPane={showNewContactPane}
+        setShowPane={setShowNewContactPane}
+      />
       {showDeleteAlert && (
         <DeleteAlert
           selectedContactIds={selectedContactIds}
