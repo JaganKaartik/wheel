@@ -1,3 +1,5 @@
+import * as yup from "yup";
+
 export const NOTES = [
   {
     id: 1,
@@ -44,3 +46,17 @@ export const ASSIGN_CONTACT_OPTIONS = [
   { label: "Jagan Kaartik", value: "Jagan Kaartik" },
   { label: "Neeraj Singh", value: "Neeraj Singh" },
 ];
+
+export const NEW_NOTE_VALIDATION_SCHEMA = yup.object({
+  title: yup.string().required("Title is required"),
+  description: yup.string().required("Description is required"),
+  tags: yup.object().required("Tag is required"),
+  assigncontact: yup.object().required("Assign Contact is required"),
+});
+
+export const NEW_NOTE_INITIAL_VALUES = {
+  title: "",
+  description: "",
+  tags: "",
+  assigncontact: "",
+};

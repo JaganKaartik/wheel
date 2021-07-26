@@ -8,7 +8,7 @@ import { Header, SubHeader } from "neetoui/layouts";
 import NoteTable from "./NoteTable";
 import NewNotePane from "./NewNotePane";
 import DeleteAlert from "./DeleteAlert";
-import { NOTES, SORT_BY_OPTIONS } from "constants/noteConstants";
+import { NOTES, SORT_BY_OPTIONS } from "constants/note";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
