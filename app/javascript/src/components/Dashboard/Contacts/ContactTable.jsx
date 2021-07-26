@@ -5,6 +5,7 @@ export default function ContactTable({
   selectedContactIds,
   setSelectedContactIds,
   contacts = [],
+  handleContactDeletion,
 }) {
   return (
     <div className="w-full px-9">
@@ -92,7 +93,11 @@ export default function ContactTable({
                     <Button style="icon" icon="ri-pencil-line" />
                   </Tooltip>
                   <Tooltip content="Delete" position="bottom">
-                    <Button style="icon" icon="ri-delete-bin-line" />
+                    <Button
+                      style="icon"
+                      icon="ri-delete-bin-line"
+                      onClick={() => handleContactDeletion(contact)}
+                    />
                   </Tooltip>
                 </div>
               </td>
