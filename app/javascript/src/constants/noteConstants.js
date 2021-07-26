@@ -32,3 +32,15 @@ export const SORT_BY_OPTIONS = [
   { label: "Name", value: "name" },
   { label: "Age", value: "age" },
 ];
+
+export const TAG_OPTIONS = [
+  { label: "Internal", value: "Internal" },
+  { label: "Agile Workflow", value: "Agile Workflow" },
+  { label: "Bug", value: "Bug" },
+];
+
+export const ASSIGN_CONTACT_OPTIONS = [
+  { label: "Karthik Menon", value: "Karthik Menon" },
+  { label: "Jagan Kaartik", value: "Jagan Kaartik" },
+  { label: "Neeraj Singh", value: "Neeraj Singh" },
+];
