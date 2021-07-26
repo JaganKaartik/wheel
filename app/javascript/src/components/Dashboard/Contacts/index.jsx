@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import { Button, PageLoader } from "neetoui";
 import EmptyState from "components/Common/EmptyState";
 import EmptyNotesListImage from "images/EmptyNotesList";
