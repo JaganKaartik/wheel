@@ -44,3 +44,27 @@ export const ASSIGN_CONTACT_OPTIONS = [
   { label: "Jagan Kaartik", value: "Jagan Kaartik" },
   { label: "Neeraj Singh", value: "Neeraj Singh" },
 ];
+
+export const CONTACTS = [
+  {
+    id: 1,
+    name: "Neeraj Singh",
+    email: "neeraj@email.com",
+    contactnumber: "123456789",
+    department: "Engineering",
+  },
+  {
+    id: 2,
+    name: "Vinay Chandran",
+    email: "vinay@email.com",
+    contactnumber: "123456789",
+    department: "Engineering",
+  },
+  {
+    id: 3,
+    name: "Jagan Kaartik",
+    email: "jagan@email.com",
+    contactnumber: "123456789",
+    department: "Engineering",
+  },
+];
