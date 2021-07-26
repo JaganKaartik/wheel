@@ -1113,10 +1113,10 @@
     "@babel/helper-validator-identifier" "^7.14.5"
     to-fast-properties "^2.0.0"
 
-"@bigbinary/neetoui@^1.0.34":
-  version "1.20.30"
-  resolved "https://registry.yarnpkg.com/@bigbinary/neetoui/-/neetoui-1.20.30.tgz#1fc58bf8e5dc328236bc2c3758dcb9a79eb5d939"
-  integrity sha512-ue8OWhm/qFdLpTq27fX9p0ajeB/uLapVvEPrPdSt4HPO8O03NFg/e/7dRoTEax67uYHCiWWpPHWTolVumnXfUA==
+"@bigbinary/neetoui@1.20.29":
+  version "1.20.29"
+  resolved "https://registry.yarnpkg.com/@bigbinary/neetoui/-/neetoui-1.20.29.tgz#6815059cee5e6d7b735549d8bc5e62241180c0f5"
+  integrity sha512-P92OfG71BFIInLbOJ7aQJjHHLao1azY73iQY9dDH7NxfiZaryZTkpi5jTlLslDte2n4Nq8jsTb+HkfZ29sfdIA==
   dependencies:
     "@reach/auto-id" "^0.15.0"
     "@tailwindcss/forms" "^0.3.2"
