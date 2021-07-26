@@ -7,6 +7,28 @@ export default function ContactTable({
   contacts = [],
   handleContactDeletion,
 }) {
+  const handleAllCheckboxClick = () => {
+    const contactIds = contacts.map(contact => contact.id);
+    if (selectedContactIds.length === contactIds.length) {
+      setSelectedContactIds([]);
+    } else {
+      setSelectedContactIds(contactIds);
+    }
+  };
+
+  const handleCheckboxRowClick = (event, contact) => {
+    event.stopPropagation();
+    const index = selectedContactIds.indexOf(contact.id);
+    if (index > -1) {
+      setSelectedContactIds([
+        ...selectedContactIds.slice(0, index),
+        ...selectedContactIds.slice(index + 1),
+      ]);
+    } else {
+      setSelectedContactIds([...selectedContactIds, contact.id]);
+    }
+  };
+
   return (
     <div className="w-full px-9">
       <table className="nui-table nui-table--checkbox nui-table-actions">
@@ -18,14 +40,7 @@ export default function ContactTable({
                   selectedContactIds.length ===
                   contacts.map(contact => contact.id).length
                 }
-                onClick={() => {
-                  const contactIds = contacts.map(contact => contact.id);
-                  if (selectedContactIds.length === contactIds.length) {
-                    setSelectedContactIds([]);
-                  } else {
-                    setSelectedContactIds(contactIds);
-                  }
-                }}
+                onClick={handleAllCheckboxClick}
               />
             </th>
             <th className="text-left">Name</th>
@@ -38,29 +53,11 @@ export default function ContactTable({
         </thead>
         <tbody>
           {contacts.map(contact => (
-            <tr
-              key={contact.id}
-              className={"cursor-pointer bg-white hover:bg-gray-50"}
-            >
+            <tr key={contact.id}>
               <td>
                 <Checkbox
                   checked={selectedContactIds.includes(contact.id)}
-                  onClick={event => {
-                    event.stopPropagation();
-                    const index = selectedContactIds.indexOf(contact.id);
-
-                    if (index > -1) {
-                      setSelectedContactIds([
-                        ...selectedContactIds.slice(0, index),
-                        ...selectedContactIds.slice(index + 1),
-                      ]);
-                    } else {
-                      setSelectedContactIds([
-                        ...selectedContactIds,
-                        contact.id,
-                      ]);
-                    }
-                  }}
+                  onClick={event => handleCheckboxRowClick(event, contact)}
                 />
               </td>
               <td>
