@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import * as yup from "yup";
 import { Formik, Form } from "formik";
 import { Input, Textarea, Select } from "neetoui/formik";
 import { Button, Toastr, Switch, DateInput } from "neetoui";
-import { TAG_OPTIONS, ASSIGN_CONTACT_OPTIONS } from "constants/noteConstants";
+import {
+  TAG_OPTIONS,
+  ASSIGN_CONTACT_OPTIONS,
+  NEW_NOTE_INITIAL_VALUES,
+  NEW_NOTE_VALIDATION_SCHEMA,
+} from "constants/note";
 
 export default function NewNoteForm({ onClose }) {
   const [dueDateChecked, setDueDateChecked] = useState(false);
@@ -14,44 +18,27 @@ export default function NewNoteForm({ onClose }) {
   };
   return (
     <Formik
-      initialValues={{
-        title: "",
-        description: "",
-        tags: "",
-        assigncontact: "",
-      }}
+      initialValues={NEW_NOTE_INITIAL_VALUES}
       onSubmit={handleSubmit}
-      validationSchema={yup.object({
-        title: yup.string().required("Title is required"),
-        description: yup.string().required("Description is required"),
-        tags: yup.object().required("Tag is required"),
-        assigncontact: yup.object().required("Assign Contact is required"),
-      })}
+      validationSchema={NEW_NOTE_VALIDATION_SCHEMA}
     >
       {({ isSubmitting }) => (
-        <Form>
-          <Input label="Note Title" name="title" className="mb-6" />
+        <Form className="space-y-6">
+          <Input label="Note Title" name="title" />
           <Select
             placeholder="Select an Option"
             options={TAG_OPTIONS}
             label="Tags"
             name="tags"
-            className="mb-6"
           />
-          <Textarea
-            label="Note Description"
-            name="description"
-            rows={8}
-            className="mb-6"
-          />
+          <Textarea label="Note Description" name="description" rows={8} />
           <Select
             placeholder="Select an Option"
             options={ASSIGN_CONTACT_OPTIONS}
             label="Assigned Contact"
             name="assigncontact"
-            className="mb-6"
           />
-          <div className="flex justify-between mb-6">
+          <div className="flex justify-between">
             <span className="nui-label">Add Due Date to Note</span>
             <Switch
               checked={dueDateChecked}

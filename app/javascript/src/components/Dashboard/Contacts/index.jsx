@@ -5,7 +5,7 @@ import EmptyState from "components/Common/EmptyState";
 import EmptyNotesListImage from "images/EmptyNotesList";
 import { Header, SubHeader } from "neetoui/layouts";
 
-import { CONTACTS, SORT_BY_OPTIONS } from "constants/noteConstants";
+import { CONTACTS, SORT_BY_OPTIONS } from "constants/contact";
 
 const Contacts = () => {
   /* eslint-disable */
