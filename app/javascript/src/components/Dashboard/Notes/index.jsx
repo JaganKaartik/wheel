@@ -100,7 +100,6 @@ const Notes = () => {
       <NewNotePane
         showPane={showNewNotePane}
         setShowPane={setShowNewNotePane}
-        fetchNotes={fetchNotes}
       />
       {showDeleteAlert && (
         <DeleteAlert
