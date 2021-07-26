@@ -6,6 +6,7 @@ import EmptyNotesListImage from "images/EmptyNotesList";
 import { Header, SubHeader } from "neetoui/layouts";
 
 import { CONTACTS, SORT_BY_OPTIONS } from "constants/contact";
+import ContactTable from "./ContactTable";
 
 const Contacts = () => {
   /* eslint-disable */
@@ -55,6 +56,11 @@ const Contacts = () => {
               pageSize: 50,
             }}
             toggleFilter={() => {}}
+          />
+          <ContactTable
+            selectedContactIds={selectedContactIds}
+            setSelectedContactIds={setSelectedContactIds}
+            contacts={contacts}
           />
         </>
       ) : (
