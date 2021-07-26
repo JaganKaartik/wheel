@@ -80,7 +80,7 @@ export default function ContactTable({
                 <div className="text-center">{contact.number}</div>
               </td>
               <td>
-                <div className="flex justify-center">
+                <div className="flex flex-col items-center justify-center">
                   <Checkbox checked={contact.basecamp} />
                 </div>
               </td>
