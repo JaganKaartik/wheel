@@ -8,8 +8,8 @@ export default function NoteTable({
   handleNoteDeletion,
 }) {
   return (
-    <div className="w-full px-24">
-      <table className="mt-10 nui-table nui-table--checkbox nui-table-actions">
+    <div className="w-full px-24 pt-12 ">
+      <table className="nui-table nui-table--checkbox nui-table-actions">
         <thead>
           <tr>
             <th>
