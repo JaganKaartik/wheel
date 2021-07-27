@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, PageLoader } from "neetoui";
 import EmptyState from "components/Common/EmptyState";
-import EmptyNotesListImage from "images/EmptyNotesList.svg";
+import EmptyNotesListImage from "images/EmptyNotesList";
 import { Header, SubHeader } from "neetoui/layouts";
 
 import { CONTACTS, SORT_BY_OPTIONS } from "constants/contact";
