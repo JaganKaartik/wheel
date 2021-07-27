@@ -30,8 +30,8 @@ export default function ContactTable({
   };
 
   return (
-    <div className="w-full px-9">
-      <table className="mt-10 nui-table nui-table--checkbox nui-table-actions">
+    <div className="w-full pt-12 px-9 ">
+      <table className="nui-table nui-table--checkbox nui-table-actions">
         <thead>
           <tr>
             <th>
